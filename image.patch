@@ -4,4 +4,4 @@ index ec03817..06a6dc2 100644
 +++ b/server/Dockerfile
 @@ -1,6 +1,6 @@
 -FROM registry.access.redhat.com/ubi8-minimal
-+FROM richardjkendall/centos8arm
++FROM dgaiero/centos8arm
