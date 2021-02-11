@@ -36,4 +36,4 @@ jobs:
           cd keycloak-containers/
           patch -p1 < ../image.patch
           cd server/
-          docker buildx build --platform linux/arm64 -t richardjkendall/keycloak-arm -f Dockerfile . --push
+          docker buildx build --platform linux/arm64 -t dgaiero/keycloak-arm -f Dockerfile . --push
