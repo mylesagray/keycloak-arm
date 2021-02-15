@@ -6,4 +6,4 @@ index ec03817..06a6dc2 100644
 -FROM registry.access.redhat.com/ubi8-minimal
 +FROM mylesagray/centos8-jboss
 
- ENV KEYCLOAK_VERSION 12.0.1
+ ENV KEYCLOAK_VERSION 12.0.2
