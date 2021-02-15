@@ -26,14 +26,14 @@ jobs:
           version: latest
 
       - name: login to docker hub
-        run: echo ${{secrets.DOCKERHUB_PASSWORD}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+        run: echo ${{ secrets.SECRET_KEY }} | docker login -u ${{ secrets.REPO }} --password-stdin
          
       # Runs a set of commands using the runners shell
       - name: build images
         run: |
-          docker buildx build --platform linux/arm64 -t dgaiero/centos8arm -f Dockerfile.base . --push
+          docker buildx build --platform linux/arm64 -t ${{ secrets.REPO }}/centos8-jboss -f Dockerfile.base . --push
           git clone https://github.com/keycloak/keycloak-containers.git
           cd keycloak-containers/
           patch -p1 < ../image.patch
           cd server/
-          docker buildx build --platform linux/arm64 -t dgaiero/keycloak-arm -f Dockerfile . --push
+          docker buildx build --platform linux/arm64 -t ${{ secrets.REPO }}/keycloak-arm -f Dockerfile . --push
